@@ -1,0 +1,14 @@
+[Unit]
+Description=zerNet Service
+After=network.target docker.service containerd.service
+
+[Service]
+ExecStart=/opt/zerNet/zerNet
+Restart=on-failure
+RestartSec=5
+User=root
+WorkingDirectory=/opt/zerNet
+Environment=HOME=/root
+
+[Install]
+WantedBy=multi-user.target
